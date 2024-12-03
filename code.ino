@@ -21,9 +21,10 @@ if you don't use tone function
 generating square wave of : ton = toff : 
 
 
-| Freq | Period |   ton    |   toFF       |
-| 100  |  0.01  | 5 msec   | 5000 microsec|
-| 200  |  0.01  | 5 msec   | 2500 microsec|
+| Freq | Period  |         ton       |     toFF     |
+| -----|---------| ----------------- | ------------ |
+| 100  |  0.01   | 5000   microsec   | 5000 microsec|
+| 200  |  1/200  | 2500   microsec   | 2500 microsec|
 
 and so on .... 
 
@@ -34,7 +35,12 @@ delay(half_period);
 
 ****************************************/
 void loop() {
-// read the knob value  
+/* ****************************************************************************************************
+tone is function that generate frequncies it takes 3 parameters (pinNumber,frequency,duration) 
+the third is optional i did't use as i want the frequency generated forever not for a specific duration 
+if i use duration the wave will dissappear after the duration finish  
+********************************************************************************************************/
+// read the knob value 
 int knob_reading = analogRead(knob);
 // make 10 intervals and generate 11 frequencies 
 if      (knob_reading > 10  && knob_reading <=100)      tone(square_pulse,100);
